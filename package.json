@@ -27,6 +27,7 @@
     "express": "^4.16.2",
     "express-art-template": "^1.0.0",
     "html-webpack-plugin": "^2.30.1",
+    "mongoose": "^8.2.2",
     "precss": "^2.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

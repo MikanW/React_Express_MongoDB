@@ -1,3 +1,5 @@
+var mongoDB = require("./db.js");
+
 var express = require("express");
 const path = require("path");
 var app = express();
@@ -64,3 +66,16 @@ app.post("/login", function (req, res) {
 app.listen(port, function () {
   console.log("Example app listening on port 9000!");
 });
+
+// 导入 mongoose 模块
+const mongoose = require("mongoose");
+
+// 设置默认 mongoose 连接
+mongoose.connect(mongoDB.uri);
+// 让 mongoose 使用全局 Promise 库
+mongoose.Promise = global.Promise;
+// 取得默认连接
+const db = mongoose.connection;
+
+// 将连接与错误事件绑定（以获得连接错误的提示）
+db.on("error", console.error.bind(console, "MongoDB 连接错误："));
